@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpax43ahtsjsd"]
+
+[ext_resource type="Script" path="res://Scripts/Wingman.cs" id="1_vk3my"]
+[ext_resource type="Texture2D" uid="uid://cjt72bvub8c62" path="res://Assets/Sprites/SpaceObjects/playerShip3_green.png" id="2_2egdc"]
+[ext_resource type="Texture2D" uid="uid://cegh7f7t7lir3" path="res://Assets/Sprites/Effects/fire06.png" id="3_jkgu4"]
+[ext_resource type="Texture2D" uid="uid://dnwt1bvr3k6x1" path="res://Assets/Sprites/Effects/fire07.png" id="4_eetbi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ei2nt"]
+radius = 19.2354
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2sphn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jkgu4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eetbi")
+}],
+"loop": true,
+"name": &"Thrust",
+"speed": 15.0
+}]
+
+[node name="Wingman" type="Area2D"]
+script = ExtResource("1_vk3my")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_2egdc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ei2nt")
+
+[node name="EngineSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-26, 0)
+rotation = 4.71239
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_2sphn")
+animation = &"Thrust"
+autoplay = "Thrust"

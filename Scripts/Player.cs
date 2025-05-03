@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Player : Node2D
+public partial class Player : SpaceObject
 {
     [Export] public float ThrustPower = 10f; // Forward/backward thrust power
     [Export] public float RotationSpeed = 5f; // Rotation speed
