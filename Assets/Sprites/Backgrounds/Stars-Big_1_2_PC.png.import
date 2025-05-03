@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3bbd15ngloqu"
-path="res://.godot/imported/purple.png-980d15ccc68d8388123d7e0f9347e70d.ctex"
+uid="uid://5s65d4eyee4b"
+path="res://.godot/imported/Stars-Big_1_2_PC.png-38585345f47a7d05f4e5a5c5d8a68f9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Backgrounds/purple.png"
-dest_files=["res://.godot/imported/purple.png-980d15ccc68d8388123d7e0f9347e70d.ctex"]
+source_file="res://Assets/Sprites/Backgrounds/Stars-Big_1_2_PC.png"
+dest_files=["res://.godot/imported/Stars-Big_1_2_PC.png-38585345f47a7d05f4e5a5c5d8a68f9a.ctex"]
 
 [params]
 

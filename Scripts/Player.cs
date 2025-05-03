@@ -3,9 +3,11 @@ using System;
 
 public partial class Player : Node2D
 {
-    [Export] public float ThrustPower = 50f; // Forward/backward thrust power
+    [Export] public float ThrustPower = 10f; // Forward/backward thrust power
     [Export] public float RotationSpeed = 5f; // Rotation speed
-    [Export] public float MaxVelocity = 100f; // Maximum velocity
+    [Export] public float MaxVelocity = 50f; // Maximum velocity
+
+    [Export] AnimatedSprite2D EngineSprite; // Reference to the engine sprite
 
     private Vector2 _velocity = Vector2.Zero;
 
@@ -28,15 +30,27 @@ public partial class Player : Node2D
         }
 
         // Thrust
+        var thrustOn = false;
         Vector2 direction = new Vector2(Mathf.Cos(Rotation), Mathf.Sin(Rotation));
         if (Input.IsActionPressed("ui_up"))
         {
             _velocity += direction * ThrustPower * (float)delta;
+            thrustOn = true;
         }
         if (Input.IsActionPressed("ui_down"))
         {
             _velocity -= direction * ThrustPower * (float)delta;
+            thrustOn = true;
         }
+        if(thrustOn)
+        {
+            EngineSprite.Visible = true;
+            EngineSprite.Play("Thrust");
+        }
+        else
+        {
+            EngineSprite.Visible = false;
+        }   
 
         // Limit the maximum velocity
         if (_velocity.Length() > MaxVelocity)
