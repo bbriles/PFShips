@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://8oib7o5jhw2k"]
+
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_2borr"]
+[ext_resource type="Texture2D" uid="uid://fin7ip6x546r" path="res://Assets/Sprites/SpaceObjects/playerShip2_blue.png" id="2_q1113"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_2borr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_q1113")
