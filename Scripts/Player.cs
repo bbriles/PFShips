@@ -11,7 +11,9 @@ public partial class Player : SpaceObject
 
     private Vector2 _velocity = Vector2.Zero;
 
-    public override void _Process(double delta)
+    public Vector2 Velocity => _velocity;
+
+    public override void _PhysicsProcess(double delta)
     {
         HandleInput(delta);
         Position += _velocity;
