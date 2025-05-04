@@ -58,15 +58,14 @@ public partial class Wingman : SpaceObject
         float distance = Position.DistanceTo(Target.Position);
         distance = Mathf.Max(distance, 0.01f);
 
-        var force = (TargetAttraction) / Mathf.Pow(distance, TargetAttractionDistance) + TargetRepulsion / Mathf.Pow(distance, TargetRepulsionDistance);
+        var force = (-TargetAttraction) / Mathf.Pow(distance, TargetAttractionDistance) + TargetRepulsion / Mathf.Pow(distance, TargetRepulsionDistance);
         GD.Print($"Force: {force}");
 
-        _acceleration += (direction * force);
+        _acceleration += (-direction * force);
     }
 
     public override void _Draw()
     {
-        // Draw acceleration vector
-        DrawLine(Vector2.Zero, _acceleration*2, Colors.Red, 2f);
+     
     }
 }
