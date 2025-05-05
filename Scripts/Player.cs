@@ -8,15 +8,16 @@ public partial class Player : SpaceObject
     [Export] public float MaxVelocity = 50f; // Maximum velocity
 
     [Export] AnimatedSprite2D EngineSprite; // Reference to the engine sprite
+    [Export] LaserEmitter LaserEmitter; // Reference to the laser emitter
 
     private Vector2 _velocity = Vector2.Zero;
 
     public Vector2 Velocity => _velocity;
 
-    public override void _PhysicsProcess(double delta)
+    public override void _Process(double delta)
     {
         HandleInput(delta);
-        Position += _velocity;
+        Position += _velocity * (float)delta;
     }
 
     private void HandleInput(double delta)
@@ -53,6 +54,12 @@ public partial class Player : SpaceObject
         {
             EngineSprite.Visible = false;
         }   
+
+        // Firing Lasers
+        if (Input.IsActionJustPressed("ui_select"))
+        {
+            LaserEmitter.FireLaser();
+        }
 
         // Limit the maximum velocity
         if (_velocity.Length() > MaxVelocity)

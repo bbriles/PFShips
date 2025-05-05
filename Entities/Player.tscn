@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://8oib7o5jhw2k"]
+[gd_scene load_steps=8 format=3 uid="uid://8oib7o5jhw2k"]
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_2borr"]
 [ext_resource type="Texture2D" uid="uid://fin7ip6x546r" path="res://Assets/Sprites/SpaceObjects/playerShip2_blue.png" id="2_q1113"]
 [ext_resource type="Texture2D" uid="uid://cegh7f7t7lir3" path="res://Assets/Sprites/Effects/fire06.png" id="3_b8lsc"]
 [ext_resource type="Texture2D" uid="uid://dnwt1bvr3k6x1" path="res://Assets/Sprites/Effects/fire07.png" id="4_k0e88"]
+[ext_resource type="Script" path="res://Scripts/LaserEmitter.cs" id="5_j73xr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pbmy1"]
 radius = 35.0
@@ -22,9 +23,10 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="Player" type="Area2D" node_paths=PackedStringArray("EngineSprite")]
+[node name="Player" type="Area2D" node_paths=PackedStringArray("EngineSprite", "LaserEmitter")]
 script = ExtResource("1_2borr")
 EngineSprite = NodePath("EngineSprite")
+LaserEmitter = NodePath("LaserEmitter")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
@@ -39,3 +41,7 @@ rotation = 4.71239
 sprite_frames = SubResource("SpriteFrames_tqoqa")
 animation = &"Thrust"
 frame_progress = 0.911977
+
+[node name="LaserEmitter" type="Node2D" parent="."]
+position = Vector2(38, 0)
+script = ExtResource("5_j73xr")
